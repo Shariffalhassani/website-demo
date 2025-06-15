@@ -1,0 +1,2676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shariff Al-Hassani Integrated School Maiduguri - Weekly Lesson Agenda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --primary-hover: #2980b9;
+            --secondary-color: #2c3e50;
+            --secondary-hover: #1a252f;
+            --accent-color: #e74c3c;
+            --accent-hover: #c0392b;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --success-hover: #27ae60;
+            --warning-color: #f39c12;
+            --warning-hover: #e67e22;
+            --info-color: #3498db;
+            --border-radius: 6px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9fafb;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        header h1 {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+        
+        .header-actions {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .btn i {
+            font-size: 0.9em;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-hover);
+        }
+        
+        .btn-danger {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: var(--accent-hover);
+        }
+        
+        .btn-success {
+            background-color: var(--success-color);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: var(--success-hover);
+        }
+        
+        .btn-warning {
+            background-color: var(--warning-color);
+            color: white;
+        }
+        
+        .btn-warning:hover {
+            background-color: var(--warning-hover);
+        }
+        
+        .btn-info {
+            background-color: var(--info-color);
+            color: white;
+        }
+        
+        .session-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .session-selector select, .session-selector input {
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            border: 1px solid #ddd;
+            font-size: 0.9rem;
+        }
+        
+        .session-selector select:focus, 
+        .session-selector input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 12px 24px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            background-color: #f1f1f1;
+            margin-right: 5px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .tab:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .tab.active {
+            background-color: white;
+            border-color: #ddd;
+            border-bottom: 1px solid white;
+            margin-bottom: -1px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .class-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .class-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .class-body {
+            padding: 15px;
+        }
+        
+        .class-schedule {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .class-schedule th, .class-schedule td {
+            border: 1px solid #e0e0e0;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .class-schedule th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .class-schedule tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .class-schedule tr:hover {
+            background-color: #f1f8ff;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow: auto;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            width: 80%;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .modal-header h2 {
+            color: var(--dark-color);
+            font-size: 1.5rem;
+        }
+        
+        .close {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #aaa;
+            transition: var(--transition);
+        }
+        
+        .close:hover {
+            color: #333;
+            transform: rotate(90deg);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .teacher-reports {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .report-card {
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: white;
+            transition: var(--transition);
+        }
+        
+        .report-card:hover {
+            box-shadow: var(--box-shadow);
+        }
+        
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .report-teacher {
+            font-weight: 600;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .report-date {
+            color: #777;
+            font-size: 0.85rem;
+        }
+        
+        .report-content {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .report-comment {
+            font-style: italic;
+            color: #555;
+            padding-top: 10px;
+            border-top: 1px dashed #ddd;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-completed {
+            background-color: var(--success-color);
+        }
+        
+        .status-pending {
+            background-color: var(--warning-color);
+        }
+        
+        .status-missed {
+            background-color: var(--accent-color);
+        }
+        
+        .management-tools {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .management-tools h2 {
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .management-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .management-card {
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .management-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .management-list {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            background-color: white;
+        }
+        
+        .management-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+        
+        .management-item:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .management-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-header {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .item-details {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .item-details div {
+            margin-bottom: 3px;
+        }
+        
+        .item-actions {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .item-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .item-btn:hover {
+            color: var(--primary-color);
+            background-color: #e3f2fd;
+        }
+        
+        .item-btn.delete:hover {
+            color: var(--accent-color);
+            background-color: #fde8e8;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            font-size: 0.95rem;
+        }
+        
+        .empty-state i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--dark-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .toast.success {
+            background-color: var(--success-color);
+        }
+        
+        .toast.error {
+            background-color: var(--accent-color);
+        }
+        
+        .toast.warning {
+            background-color: var(--warning-color);
+        }
+        
+        .backup-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .backup-section h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .backup-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .backup-info {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #666;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+        }
+        
+        /* Login Dashboard Styles */
+        #login-dashboard {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f7fa;
+        }
+        
+        .login-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        .login-container h1 {
+            margin-bottom: 30px;
+            color: var(--dark-color);
+        }
+        
+        .login-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .login-btn {
+            padding: 12px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .login-btn.admin {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .login-btn.admin:hover {
+            background-color: var(--secondary-hover);
+        }
+        
+        .login-btn.teacher {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .login-btn.teacher:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        /* Teacher Dashboard Styles */
+        #teacher-dashboard {
+            display: none;
+        }
+        
+        /* Main App Styles */
+        #main-app {
+            display: none;
+        }
+        
+        .teacher-schedule {
+            margin-top: 20px;
+        }
+        
+        .add-note-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .add-note-section h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .print-content, .print-content * {
+                visibility: visible;
+            }
+            .print-content {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .class-card {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+                margin-bottom: 20px;
+            }
+            .class-header {
+                background-color: #f0f0f0 !important;
+                color: #000 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .class-schedule th {
+                background-color: #f0f0f0 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .class-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            .session-selector {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+                padding: 15px;
+            }
+            
+            .header-actions {
+                position: static;
+                justify-content: center;
+                margin-top: 15px;
+            }
+            
+            .management-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .login-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Dashboard -->
+    <div id="login-dashboard">
+        <div class="login-container">
+            <h1>Shariff Al-Hassani Integrated School Maiduguri</h1>
+            <h2>Weekly Lesson Agenda</h2>
+            
+            <div class="login-options">
+                <button id="admin-login-btn" class="login-btn admin">
+                    <i class="fas fa-user-shield"></i> Admin Login
+                </button>
+                <button id="teacher-login-btn" class="login-btn teacher">
+                    <i class="fas fa-chalkboard-teacher"></i> Teacher Login
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Application -->
+    <div id="main-app">
+        <header>
+            <div class="container">
+                <h1>Shariff Al-Hassani Integrated School Maiduguri</h1></br><h1> Weekly Lesson Agenda</h1>
+                <div class="header-actions no-print">
+                    <button id="logout-btn" class="btn btn-danger">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                    <button id="backup-btn" class="btn btn-secondary" title="Backup Data">
+                        <i class="fas fa-database"></i> Backup
+                    </button>
+                    <button id="restore-btn" class="btn btn-info" title="Restore Data">
+                        <i class="fas fa-undo"></i> Restore
+                    </button>
+                    <button id="add-session-btn" class="btn btn-primary" title="Add New Session">
+                        <i class="fas fa-plus"></i> Add Session
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <div class="container">
+            <div class="controls">
+                <div class="session-selector">
+                    <select id="session-select">
+                        <!-- Sessions will be populated by JS -->
+                    </select>
+                    <select id="term-select">
+                        <option value="1">Term 1</option>
+                        <option value="2">Term 2</option>
+                        <option value="3">Term 3</option>
+                    </select>
+                    <select id="week-select">
+                        <!-- Weeks will be populated by JS (1-15) -->
+                    </select>
+                    <input type="date" id="week-date" class="form-control">
+                    <button id="prev-week" class="btn btn-primary">
+                        <i class="fas fa-chevron-left"></i> Prev
+                    </button>
+                    <button id="next-week" class="btn btn-primary">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div>
+                    <button id="print-btn" class="btn btn-primary no-print">
+                        <i class="fas fa-print"></i> Print
+                    </button>
+                    <button id="download-btn" class="btn btn-success no-print">
+                        <i class="fas fa-download"></i> Download
+                    </button>
+                    <button id="add-lesson-btn" class="btn btn-primary no-print">
+                        <i class="fas fa-plus"></i> Add Lesson
+                    </button>
+                    <button id="add-report-btn" class="btn btn-primary no-print">
+                        <i class="fas fa-file-alt"></i> Add Report
+                    </button>
+                </div>
+            </div>
+            
+            <div class="tabs no-print">
+                <div class="tab active" data-tab="schedule">Class Schedule</div>
+                <div class="tab" data-tab="reports">Teacher Reports</div>
+                <div class="tab" data-tab="management">Management</div>
+            </div>
+            
+            <div id="schedule" class="tab-content active print-content">
+                <div class="class-grid" id="class-container">
+                    <!-- Class cards will be generated here -->
+                </div>
+            </div>
+            
+            <div id="reports" class="tab-content">
+                <div class="teacher-reports" id="reports-container">
+                    <!-- Teacher reports will be displayed here -->
+                </div>
+            </div>
+            
+            <div id="management" class="tab-content">
+                <div class="management-tools">
+                    <h2>School Management</h2>
+                    <div class="management-grid">
+                        <div class="management-card">
+                            <h3>Classes</h3>
+                            <div id="classes-list">
+                                <!-- Classes list will be here -->
+                            </div>
+                            <button id="add-class-btn" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Add Class
+                            </button>
+                        </div>
+                        <div class="management-card">
+                            <h3>Teachers</h3>
+                            <div id="teachers-list">
+                                <!-- Teachers list will be here -->
+                            </div>
+                            <button id="add-teacher-btn" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Add Teacher
+                            </button>
+                        </div>
+                        <div class="management-card">
+                            <h3>Subjects</h3>
+                            <div id="subjects-list">
+                                <!-- Subjects list will be here -->
+                            </div>
+                            <button id="add-subject-btn" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Add Subject
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="backup-section no-print">
+                    <h3>Data Backup & Restore</h3>
+                    <div class="backup-actions">
+                        <button id="backup-now-btn" class="btn btn-secondary">
+                            <i class="fas fa-save"></i> Backup Now
+                        </button>
+                        <button id="restore-data-btn" class="btn btn-info">
+                            <i class="fas fa-undo"></i> Restore Data
+                        </button>
+                        <button id="export-data-btn" class="btn btn-success">
+                            <i class="fas fa-file-export"></i> Export Data
+                        </button>
+                        <button id="import-data-btn" class="btn btn-warning">
+                            <i class="fas fa-file-import"></i> Import Data
+                        </button>
+                        <button id="reset-data-btn" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i> Reset Data
+                        </button>
+                    </div>
+                    <div class="backup-info">
+                        <p><i class="fas fa-info-circle"></i> Last backup: <span id="last-backup-time">Never</span></p>
+                        <p>Automatic backups are performed every 30 minutes. You can also manually backup your data using the buttons above.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Teacher Dashboard -->
+    <div id="teacher-dashboard">
+        <header>
+            <div class="container">
+                <h1>Teacher Dashboard</h1>
+                <div class="header-actions">
+                    <button id="logout-btn" class="btn btn-danger">Logout</button>
+                </div>
+            </div>
+        </header>
+        
+        <div class="container">
+            <div class="controls">
+                <div class="session-selector">
+                    <select id="teacher-session-select"></select>
+                    <select id="teacher-term-select">
+                        <option value="1">Term 1</option>
+                        <option value="2">Term 2</option>
+                        <option value="3">Term 3</option>
+                    </select>
+                    <select id="teacher-week-select"></select>
+                </div>
+            </div>
+            
+            <div class="teacher-schedule" id="teacher-schedule-container">
+                <!-- Teacher's schedule will be displayed here -->
+            </div>
+            
+            <div class="add-note-section">
+                <h3>Add Lesson Note</h3>
+                <form id="lesson-note-form">
+                    <div class="form-group">
+                        <label for="note-class">Class</label>
+                        <select id="note-class" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="note-subject">Subject</label>
+                        <select id="note-subject" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="note-date">Date</label>
+                        <input type="date" id="note-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="note-content">Lesson Note</label>
+                        <textarea id="note-content" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit Note</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Admin Login Modal -->
+    <div id="admin-login-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Admin Login</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="admin-login-form">
+                <div class="form-group">
+                    <label for="admin-username">Username</label>
+                    <input type="text" id="admin-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <input type="password" id="admin-password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Teacher Login Modal -->
+    <div id="teacher-login-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Teacher Login</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="teacher-login-form">
+                <div class="form-group">
+                    <label for="teacher-email">Email</label>
+                    <input type="email" id="teacher-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="teacher-password">Password</label>
+                    <input type="password" id="teacher-password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Add Lesson Modal -->
+    <div id="lesson-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Lesson</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="lesson-form">
+                <div class="form-group">
+                    <label for="lesson-class">Class</label>
+                    <select id="lesson-class" required>
+                        <!-- Options will be populated by JS -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lesson-subject">Subject</label>
+                    <select id="lesson-subject" required>
+                        <!-- Options will be populated by JS -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lesson-teacher">Teacher</label>
+                    <select id="lesson-teacher" required>
+                        <!-- Options will be populated by JS -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lesson-session">Session</label>
+                    <select id="lesson-session" required>
+                        <!-- Sessions will be populated by JS -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lesson-term">Term</label>
+                    <select id="lesson-term" required>
+                        <option value="1">Term 1</option>
+                        <option value="2">Term 2</option>
+                        <option value="3">Term 3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lesson-week">Week</label>
+                    <select id="lesson-week" required>
+                        <!-- Weeks 1-15 will be populated by JS -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lesson-day">Day</label>
+                    <select id="lesson-day" required>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lesson-period">Period</label>
+                    <select id="lesson-period" required>
+                        <option value="1">Period 1</option>
+                        <option value="2">Period 2</option>
+                        <option value="3">Period 3</option>
+                        <option value="4">Period 4</option>
+                        <option value="5">Period 5</option>
+                        <option value="6">Period 6</option>
+                        <option value="7">Period 7</option>
+                        <option value="8">Period 8</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lesson-time">Time</label>
+                    <input type="time" id="lesson-time" required>
+                </div>
+                <div class="form-group">
+                    <label for="lesson-note">Lesson Note</label>
+                    <textarea id="lesson-note" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger" id="cancel-lesson">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Save Lesson
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Add Report Modal -->
+    <div id="report-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Teacher Report</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="report-form">
+                <div class="form-group">
+                    <label for="report-teacher">Teacher</label>
+                    <select id="report-teacher" required>
+                        <!-- Options will be populated by JS -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="report-session">Session</label>
+                    <select id="report-session" required>
+                        <!-- Sessions will be populated by JS -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="report-term">Term</label>
+                    <select id="report-term" required>
+                        <option value="1">Term 1</option>
+                        <option value="2">Term 2</option>
+                        <option value="3">Term 3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="report-week">Week</label>
+                    <select id="report-week" required>
+                        <!-- Weeks 1-15 will be populated by JS -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="report-date">Date</label>
+                    <input type="date" id="report-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="report-content">Report Content</label>
+                    <textarea id="report-content" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="report-comment">Director's Comment</label>
+                    <textarea id="report-comment"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="report-status">Status</label>
+                    <select id="report-status" required>
+                        <option value="completed">Completed</option>
+                        <option value="pending">Pending</option>
+                        <option value="missed">Missed</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger" id="cancel-report">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Save Report
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Add Class Modal -->
+    <div id="class-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Class</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="class-form">
+                <div class="form-group">
+                    <label for="class-name">Class Name</label>
+                    <input type="text" id="class-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="class-level">Level</label>
+                    <select id="class-level" required>
+                        <option value="Primary">Primary</option>
+                        <option value="Secondary">Secondary</option>
+                        <option value="Kindergarten">Kindergarten</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="class-teacher">Class Teacher</label>
+                    <select id="class-teacher">
+                        <!-- Options will be populated by JS -->
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger" id="cancel-class">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Save Class
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Add Teacher Modal -->
+    <div id="teacher-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Teacher</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="teacher-form">
+                <div class="form-group">
+                    <label for="teacher-name">Full Name</label>
+                    <input type="text" id="teacher-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="teacher-email">Email</label>
+                    <input type="email" id="teacher-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="teacher-phone">Phone</label>
+                    <input type="tel" id="teacher-phone">
+                </div>
+                <div class="form-group">
+                    <label for="teacher-password">Password</label>
+                    <input type="password" id="teacher-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="teacher-subjects">Subjects (Hold Ctrl to select multiple)</label>
+                    <select id="teacher-subjects" multiple>
+                        <!-- Options will be populated by JS -->
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger" id="cancel-teacher">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Save Teacher
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Add Subject Modal -->
+    <div id="subject-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Subject</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="subject-form">
+                <div class="form-group">
+                    <label for="subject-name">Subject Name</label>
+                    <input type="text" id="subject-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject-level">Level</label>
+                    <select id="subject-level" required>
+                        <option value="All">All Levels</option>
+                        <option value="Primary">Primary</option>
+                        <option value="Secondary">Secondary</option>
+                        <option value="Kindergarten">Kindergarten</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subject-description">Description</label>
+                    <textarea id="subject-description"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger" id="cancel-subject">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Save Subject
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Add Session Modal -->
+    <div id="session-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Session</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="session-form">
+                <div class="form-group">
+                    <label for="session-name">Session Name (e.g., 2023-2024)</label>
+                    <input type="text" id="session-name" required pattern="\d{4}-\d{4}" 
+                           title="Please enter session in the format YYYY-YYYY (e.g., 2023-2024)">
+                </div>
+                <div class="form-group">
+                    <label for="session-start-date">Start Date</label>
+                    <input type="date" id="session-start-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="session-end-date">End Date</label>
+                    <input type="date" id="session-end-date" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger" id="cancel-session">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Save Session
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Backup Modal -->
+    <div id="backup-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Backup Data</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="backup-name">Backup Name</label>
+                    <input type="text" id="backup-name" placeholder="Enter a name for this backup">
+                </div>
+                <div class="form-group">
+                    <label for="backup-description">Description (Optional)</label>
+                    <textarea id="backup-description" placeholder="Add a description for this backup"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger" id="cancel-backup">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="button" class="btn btn-success" id="confirm-backup">
+                        <i class="fas fa-save"></i> Create Backup
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Restore Modal -->
+    <div id="restore-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Restore Data</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Select Backup to Restore</label>
+                    <div id="backup-list" class="management-list" style="height: 300px;">
+                        <!-- Backup items will be populated here -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="alert alert-warning">
+                        <strong>Warning:</strong> Restoring will overwrite all current data. Make sure to backup first if needed.
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger" id="cancel-restore">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="button" class="btn btn-success" id="confirm-restore" disabled>
+                        <i class="fas fa-undo"></i> Restore Selected
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">Operation completed successfully</span>
+    </div>
+    
+    <script>
+    // DOM Elements
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const modals = document.querySelectorAll('.modal');
+    const closeButtons = document.querySelectorAll('.close');
+    const toast = document.getElementById('toast');
+
+    // Sample data storage
+    let appData = {
+      sessions: [],
+      classes: [],
+      teachers: [],
+      subjects: [],
+      lessons: [],
+      reports: [],
+      backups: [],
+      adminCredentials: {
+        username: "admin",
+        password: "admin123"
+      }
+    };
+
+    // User state
+    let currentUser = null;
+    let isAdminLoggedIn = false;
+    let isTeacherLoggedIn = false;
+
+    // Initialize the app when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeSampleData();
+      setupEventListeners();
+      showLoginDashboard();
+    });
+
+    function initializeSampleData() {
+      if (appData.sessions.length === 0) {
+        const currentYear = new Date().getFullYear();
+        appData.sessions = [
+          { id: 1, name: `${currentYear-1}-${currentYear}`, startDate: `${currentYear-1}-09-01`, endDate: `${currentYear}-06-30` },
+          { id: 2, name: `${currentYear}-${currentYear+1}`, startDate: `${currentYear}-09-01`, endDate: `${currentYear+1}-06-30` }
+        ];
+      }
+      
+      if (appData.classes.length === 0) {
+        appData.classes = [
+          { id: 1, name: "Grade 1", level: "Primary", teacherId: 1 },
+          { id: 2, name: "Grade 2", level: "Primary", teacherId: 2 },
+          { id: 3, name: "Grade 3", level: "Primary", teacherId: 3 }
+        ];
+      }
+      
+      if (appData.teachers.length === 0) {
+        appData.teachers = [
+          { 
+            id: 1, 
+            name: "John Smith", 
+            email: "john@school.edu", 
+            password: "teacher123",
+            phone: "555-0101", 
+            subjectIds: [1, 2] 
+          },
+          { 
+            id: 2, 
+            name: "Mary Johnson", 
+            email: "mary@school.edu", 
+            password: "teacher123",
+            phone: "555-0102", 
+            subjectIds: [3, 4] 
+          },
+          { 
+            id: 3, 
+            name: "David Wilson", 
+            email: "david@school.edu", 
+            password: "teacher123",
+            phone: "555-0103", 
+            subjectIds: [5, 6] 
+          }
+        ];
+      }
+      
+      if (appData.subjects.length === 0) {
+        appData.subjects = [
+          { id: 1, name: "Mathematics", level: "All", description: "Numbers and calculations" },
+          { id: 2, name: "English", level: "All", description: "Language and literature" },
+          { id: 3, name: "Science", level: "All", description: "Natural sciences" },
+          { id: 4, name: "History", level: "All", description: "World history" },
+          { id: 5, name: "Art", level: "All", description: "Creative arts" },
+          { id: 6, name: "Physical Education", level: "All", description: "Sports and fitness" }
+        ];
+      }
+    }
+
+    function setupEventListeners() {
+      // Login buttons
+      document.getElementById('admin-login-btn').addEventListener('click', () => {
+        openModal(document.getElementById('admin-login-modal'));
+      });
+      
+      document.getElementById('teacher-login-btn').addEventListener('click', () => {
+        openModal(document.getElementById('teacher-login-modal'));
+      });
+
+      // Admin login form
+      document.getElementById('admin-login-form')?.addEventListener('submit', handleAdminLogin);
+      
+      // Teacher login form
+      document.getElementById('teacher-login-form')?.addEventListener('submit', handleTeacherLogin);
+
+      // Tab switching
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById(tab.getAttribute('data-tab')).classList.add('active');
+        });
+      });
+
+      // Modal open/close
+      document.getElementById('add-session-btn').addEventListener('click', () => {
+        openModal(document.getElementById('session-modal'));
+      });
+      
+      document.getElementById('add-lesson-btn').addEventListener('click', () => {
+        populateLessonFormSelects();
+        openModal(document.getElementById('lesson-modal'));
+      });
+      
+      document.getElementById('add-report-btn').addEventListener('click', () => {
+        populateReportFormSelects();
+        openModal(document.getElementById('report-modal'));
+      });
+      
+      document.getElementById('add-class-btn').addEventListener('click', () => {
+        populateClassFormSelects();
+        openModal(document.getElementById('class-modal'));
+      });
+      
+      document.getElementById('add-teacher-btn').addEventListener('click', () => {
+        populateTeacherFormSelects();
+        openModal(document.getElementById('teacher-modal'));
+      });
+      
+      document.getElementById('add-subject-btn').addEventListener('click', () => {
+        openModal(document.getElementById('subject-modal'));
+      });
+
+      closeButtons.forEach(btn => {
+        btn.addEventListener('click', () => closeModal(btn.closest('.modal')));
+      });
+
+      window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
+          closeModal(e.target);
+        }
+      });
+
+      // Form submissions
+      document.getElementById('lesson-form')?.addEventListener('submit', handleLessonSubmit);
+      document.getElementById('report-form')?.addEventListener('submit', handleReportSubmit);
+      document.getElementById('class-form')?.addEventListener('submit', handleClassSubmit);
+      document.getElementById('teacher-form')?.addEventListener('submit', handleTeacherSubmit);
+      document.getElementById('subject-form')?.addEventListener('submit', handleSubjectSubmit);
+      document.getElementById('session-form')?.addEventListener('submit', handleSessionSubmit);
+      document.getElementById('lesson-note-form')?.addEventListener('submit', handleLessonNoteSubmit);
+
+      // Cancel buttons
+      document.getElementById('cancel-lesson')?.addEventListener('click', () => closeModal(document.getElementById('lesson-modal')));
+      document.getElementById('cancel-report')?.addEventListener('click', () => closeModal(document.getElementById('report-modal')));
+      document.getElementById('cancel-class')?.addEventListener('click', () => closeModal(document.getElementById('class-modal')));
+      document.getElementById('cancel-teacher')?.addEventListener('click', () => closeModal(document.getElementById('teacher-modal')));
+      document.getElementById('cancel-subject')?.addEventListener('click', () => closeModal(document.getElementById('subject-modal')));
+      document.getElementById('cancel-session')?.addEventListener('click', () => closeModal(document.getElementById('session-modal')));
+      document.getElementById('cancel-backup')?.addEventListener('click', () => closeModal(document.getElementById('backup-modal')));
+      document.getElementById('cancel-restore')?.addEventListener('click', () => closeModal(document.getElementById('restore-modal')));
+
+      // Week navigation
+      document.getElementById('prev-week')?.addEventListener('click', () => navigateWeek(-1));
+      document.getElementById('next-week')?.addEventListener('click', () => navigateWeek(1));
+      
+      // Logout buttons
+      document.querySelectorAll('#logout-btn').forEach(btn => {
+        btn.addEventListener('click', handleLogout);
+      });
+
+      // Teacher dashboard navigation
+      document.getElementById('teacher-session-select')?.addEventListener('change', loadTeacherSchedule);
+      document.getElementById('teacher-term-select')?.addEventListener('change', loadTeacherSchedule);
+      document.getElementById('teacher-week-select')?.addEventListener('change', loadTeacherSchedule);
+
+      // Print and download
+      document.getElementById('print-btn')?.addEventListener('click', handlePrint);
+      document.getElementById('download-btn')?.addEventListener('click', handleDownload);
+
+      // Backup and restore
+      document.getElementById('backup-btn')?.addEventListener('click', () => openModal(document.getElementById('backup-modal')));
+      document.getElementById('restore-btn')?.addEventListener('click', () => openModal(document.getElementById('restore-modal')));
+      document.getElementById('backup-now-btn')?.addEventListener('click', handleBackupNow);
+      document.getElementById('restore-data-btn')?.addEventListener('click', handleRestoreData);
+      document.getElementById('export-data-btn')?.addEventListener('click', handleExportData);
+      document.getElementById('import-data-btn')?.addEventListener('click', handleImportData);
+      document.getElementById('reset-data-btn')?.addEventListener('click', handleResetData);
+    }
+
+    function setupEditDeleteListeners() {
+      // Edit Class
+      document.querySelectorAll('#classes-list .item-btn.edit').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = parseInt(btn.getAttribute('data-id'));
+          editClass(id);
+        });
+      });
+
+      // Delete Class
+      document.querySelectorAll('#classes-list .item-btn.delete').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = parseInt(btn.getAttribute('data-id'));
+          deleteClass(id);
+        });
+      });
+
+      // Edit Teacher
+      document.querySelectorAll('#teachers-list .item-btn.edit').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = parseInt(btn.getAttribute('data-id'));
+          editTeacher(id);
+        });
+      });
+
+      // Delete Teacher
+      document.querySelectorAll('#teachers-list .item-btn.delete').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = parseInt(btn.getAttribute('data-id'));
+          deleteTeacher(id);
+        });
+      });
+
+      // Edit Subject
+      document.querySelectorAll('#subjects-list .item-btn.edit').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = parseInt(btn.getAttribute('data-id'));
+          editSubject(id);
+        });
+      });
+
+      // Delete Subject
+      document.querySelectorAll('#subjects-list .item-btn.delete').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = parseInt(btn.getAttribute('data-id'));
+          deleteSubject(id);
+        });
+      });
+    }
+
+    // Show login dashboard
+    function showLoginDashboard() {
+      document.getElementById('login-dashboard').style.display = 'flex';
+      document.getElementById('main-app').style.display = 'none';
+      document.getElementById('teacher-dashboard').style.display = 'none';
+    }
+
+    // Show main app (admin)
+    function showMainApp() {
+      document.getElementById('login-dashboard').style.display = 'none';
+      document.getElementById('main-app').style.display = 'block';
+      document.getElementById('teacher-dashboard').style.display = 'none';
+      
+      loadInitialData();
+      setCurrentWeekDate();
+    }
+
+    // Show teacher dashboard
+    function showTeacherDashboard() {
+      document.getElementById('login-dashboard').style.display = 'none';
+      document.getElementById('main-app').style.display = 'none';
+      document.getElementById('teacher-dashboard').style.display = 'block';
+      
+      // Populate teacher dashboard selects
+      const sessionSelect = document.getElementById('teacher-session-select');
+      sessionSelect.innerHTML = appData.sessions.map(s => 
+        `<option value="${s.id}">${s.name}</option>`
+      ).join('');
+      
+      const weekSelect = document.getElementById('teacher-week-select');
+      weekSelect.innerHTML = Array.from({length: 15}, (_, i) => 
+        `<option value="${i+1}">Week ${i+1}</option>`
+      ).join('');
+      
+      // Load initial schedule
+      loadTeacherSchedule();
+      
+      // Populate note form selects
+      populateNoteFormSelects();
+    }
+
+    // Handle admin login
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      
+      const username = document.getElementById('admin-username').value;
+      const password = document.getElementById('admin-password').value;
+      
+      if (username === appData.adminCredentials.username && 
+          password === appData.adminCredentials.password) {
+        isAdminLoggedIn = true;
+        currentUser = { username, role: 'admin' };
+        closeModal(document.getElementById('admin-login-modal'));
+        showMainApp();
+        showToast('Admin login successful');
+      } else {
+        showToast('Invalid username or password', 'error');
+      }
+      
+      e.target.reset();
+    }
+
+    // Handle teacher login
+    function handleTeacherLogin(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('teacher-email').value;
+      const password = document.getElementById('teacher-password').value;
+      
+      const teacher = appData.teachers.find(t => t.email === email && t.password === password);
+      
+      if (teacher) {
+        isTeacherLoggedIn = true;
+        currentUser = teacher;
+        closeModal(document.getElementById('teacher-login-modal'));
+        showTeacherDashboard();
+        showToast('Teacher login successful');
+      } else {
+        showToast('Invalid email or password', 'error');
+      }
+      
+      e.target.reset();
+    }
+
+    // Handle logout
+    function handleLogout() {
+      isAdminLoggedIn = false;
+      isTeacherLoggedIn = false;
+      currentUser = null;
+      showLoginDashboard();
+      showToast('Logged out successfully');
+    }
+
+    // Class Functions
+    function editClass(id) {
+      const cls = appData.classes.find(c => c.id === id);
+      if (!cls) return;
+
+      document.getElementById('class-name').value = cls.name;
+      document.getElementById('class-level').value = cls.level;
+      document.getElementById('class-teacher').value = cls.teacherId || '';
+
+      const form = document.getElementById('class-form');
+      form.dataset.editId = id;
+      form.querySelector('button[type="submit"]').textContent = 'Update Class';
+
+      openModal(document.getElementById('class-modal'));
+    }
+
+    function deleteClass(id) {
+      if (!confirm('Are you sure you want to delete this class?')) return;
+      
+      appData.classes = appData.classes.filter(c => c.id !== id);
+      appData.lessons = appData.lessons.filter(l => l.classId !== id);
+      
+      loadManagementLists();
+      loadClassSchedule();
+      showToast('Class deleted successfully');
+    }
+
+    // Teacher Functions
+    function editTeacher(id) {
+      const teacher = appData.teachers.find(t => t.id === id);
+      if (!teacher) return;
+
+      document.getElementById('teacher-name').value = teacher.name;
+      document.getElementById('teacher-email').value = teacher.email;
+      document.getElementById('teacher-phone').value = teacher.phone || '';
+      document.getElementById('teacher-password').value = teacher.password;
+
+      const subjectSelect = document.getElementById('teacher-subjects');
+      Array.from(subjectSelect.options).forEach(option => {
+        option.selected = teacher.subjectIds.includes(parseInt(option.value));
+      });
+
+      const form = document.getElementById('teacher-form');
+      form.dataset.editId = id;
+      form.querySelector('button[type="submit"]').textContent = 'Update Teacher';
+
+      openModal(document.getElementById('teacher-modal'));
+    }
+
+    function deleteTeacher(id) {
+      if (!confirm('Are you sure you want to delete this teacher?')) return;
+      
+      appData.teachers = appData.teachers.filter(t => t.id !== id);
+      appData.classes = appData.classes.map(c => {
+        if (c.teacherId === id) return {...c, teacherId: null};
+        return c;
+      });
+      appData.lessons = appData.lessons.filter(l => l.teacherId !== id);
+      
+      loadManagementLists();
+      loadClassSchedule();
+      showToast('Teacher deleted successfully');
+    }
+
+    // Subject Functions
+    function editSubject(id) {
+      const subject = appData.subjects.find(s => s.id === id);
+      if (!subject) return;
+
+      document.getElementById('subject-name').value = subject.name;
+      document.getElementById('subject-level').value = subject.level;
+      document.getElementById('subject-description').value = subject.description || '';
+
+      const form = document.getElementById('subject-form');
+      form.dataset.editId = id;
+      form.querySelector('button[type="submit"]').textContent = 'Update Subject';
+
+      openModal(document.getElementById('subject-modal'));
+    }
+
+    function deleteSubject(id) {
+      if (!confirm('Are you sure you want to delete this subject?')) return;
+      
+      appData.subjects = appData.subjects.filter(s => s.id !== id);
+      appData.teachers = appData.teachers.map(t => ({
+        ...t,
+        subjectIds: t.subjectIds.filter(subId => subId !== id)
+      }));
+      appData.lessons = appData.lessons.filter(l => l.subjectId !== id);
+      
+      loadManagementLists();
+      loadClassSchedule();
+      showToast('Subject deleted successfully');
+    }
+
+    function populateFormSelects() {
+      const sessionSelect = document.getElementById('session-select');
+      sessionSelect.innerHTML = appData.sessions.map(s => 
+        `<option value="${s.id}">${s.name}</option>`
+      ).join('');
+
+      const weekSelect = document.getElementById('week-select');
+      weekSelect.innerHTML = Array.from({length: 15}, (_, i) => 
+        `<option value="${i+1}">Week ${i+1}</option>`
+      ).join('');
+    }
+
+    function populateLessonFormSelects() {
+      const classSelect = document.getElementById('lesson-class');
+      classSelect.innerHTML = appData.classes.map(cls => 
+        `<option value="${cls.id}">${cls.name}</option>`
+      ).join('');
+      
+      const subjectSelect = document.getElementById('lesson-subject');
+      subjectSelect.innerHTML = appData.subjects.map(sub => 
+        `<option value="${sub.id}">${sub.name}</option>`
+      ).join('');
+      
+      const teacherSelect = document.getElementById('lesson-teacher');
+      teacherSelect.innerHTML = appData.teachers.map(teacher => 
+        `<option value="${teacher.id}">${teacher.name}</option>`
+      ).join('');
+      
+      const sessionSelect = document.getElementById('lesson-session');
+      sessionSelect.innerHTML = appData.sessions.map(session => 
+        `<option value="${session.id}">${session.name}</option>`
+      ).join('');
+      
+      const weekSelect = document.getElementById('lesson-week');
+      weekSelect.innerHTML = Array.from({length: 15}, (_, i) => 
+        `<option value="${i+1}">Week ${i+1}</option>`
+      ).join('');
+    }
+
+    function populateReportFormSelects() {
+      const teacherSelect = document.getElementById('report-teacher');
+      teacherSelect.innerHTML = appData.teachers.map(teacher => 
+        `<option value="${teacher.id}">${teacher.name}</option>`
+      ).join('');
+      
+      const sessionSelect = document.getElementById('report-session');
+      sessionSelect.innerHTML = appData.sessions.map(session => 
+        `<option value="${session.id}">${session.name}</option>`
+      ).join('');
+      
+      const weekSelect = document.getElementById('report-week');
+      weekSelect.innerHTML = Array.from({length: 15}, (_, i) => 
+        `<option value="${i+1}">Week ${i+1}</option>`
+      ).join('');
+    }
+
+    function populateClassFormSelects() {
+      const teacherSelect = document.getElementById('class-teacher');
+      teacherSelect.innerHTML = '<option value="">None</option>' + 
+        appData.teachers.map(teacher => 
+          `<option value="${teacher.id}">${teacher.name}</option>`
+        ).join('');
+    }
+
+    function populateTeacherFormSelects() {
+      const subjectsSelect = document.getElementById('teacher-subjects');
+      subjectsSelect.innerHTML = appData.subjects.map(subject => 
+        `<option value="${subject.id}">${subject.name}</option>`
+      ).join('');
+    }
+
+    function setCurrentWeekDate() {
+      const today = new Date();
+      document.getElementById('week-date').valueAsDate = today;
+    }
+
+    function openModal(modal) {
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function showToast(message, type = 'success') {
+      toast.className = `toast ${type} show`;
+      document.getElementById('toast-message').textContent = message;
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    function navigateWeek(direction) {
+      const weekSelect = document.getElementById('week-select');
+      let week = parseInt(weekSelect.value);
+      week += direction;
+      
+      if (week < 1) week = 1;
+      if (week > 15) week = 15;
+      
+      weekSelect.value = week;
+      loadClassSchedule();
+    }
+
+    function handleLessonSubmit(e) {
+      e.preventDefault();
+      
+      const isEdit = e.target.dataset.editId;
+      const newLesson = {
+        id: isEdit ? parseInt(e.target.dataset.editId) : Date.now(),
+        classId: parseInt(document.getElementById('lesson-class').value),
+        subjectId: parseInt(document.getElementById('lesson-subject').value),
+        teacherId: parseInt(document.getElementById('lesson-teacher').value),
+        sessionId: parseInt(document.getElementById('lesson-session').value),
+        term: parseInt(document.getElementById('lesson-term').value),
+        week: parseInt(document.getElementById('lesson-week').value),
+        day: document.getElementById('lesson-day').value,
+        period: document.getElementById('lesson-period').value,
+        time: document.getElementById('lesson-time').value,
+        note: document.getElementById('lesson-note').value
+      };
+      
+      if (isEdit) {
+        const index = appData.lessons.findIndex(l => l.id === newLesson.id);
+        if (index !== -1) appData.lessons[index] = newLesson;
+      } else {
+        appData.lessons.push(newLesson);
+      }
+      
+      loadClassSchedule();
+      closeModal(document.getElementById('lesson-modal'));
+      showToast(`Lesson ${isEdit ? 'updated' : 'added'} successfully`);
+      
+      e.target.reset();
+      delete e.target.dataset.editId;
+      e.target.querySelector('button[type="submit"]').textContent = 'Save Lesson';
+    }
+
+    function handleReportSubmit(e) {
+      e.preventDefault();
+      
+      const newReport = {
+        id: Date.now(),
+        teacherId: parseInt(document.getElementById('report-teacher').value),
+        sessionId: parseInt(document.getElementById('report-session').value),
+        term: parseInt(document.getElementById('report-term').value),
+        week: parseInt(document.getElementById('report-week').value),
+        date: document.getElementById('report-date').value,
+        content: document.getElementById('report-content').value,
+        comment: document.getElementById('report-comment').value,
+        status: document.getElementById('report-status').value
+      };
+      
+      appData.reports.push(newReport);
+      loadTeacherReports();
+      closeModal(document.getElementById('report-modal'));
+      showToast('Report added successfully');
+      
+      e.target.reset();
+    }
+
+    function handleClassSubmit(e) {
+      e.preventDefault();
+      
+      const isEdit = e.target.dataset.editId;
+      const classData = {
+        id: isEdit ? parseInt(e.target.dataset.editId) : Date.now(),
+        name: document.getElementById('class-name').value,
+        level: document.getElementById('class-level').value,
+        teacherId: document.getElementById('class-teacher').value ? 
+          parseInt(document.getElementById('class-teacher').value) : null
+      };
+      
+      if (isEdit) {
+        const index = appData.classes.findIndex(c => c.id === classData.id);
+        if (index !== -1) appData.classes[index] = classData;
+      } else {
+        appData.classes.push(classData);
+      }
+      
+      loadManagementLists();
+      loadClassSchedule();
+      closeModal(document.getElementById('class-modal'));
+      showToast(`Class ${isEdit ? 'updated' : 'added'} successfully`);
+      
+      e.target.reset();
+      delete e.target.dataset.editId;
+      e.target.querySelector('button[type="submit"]').textContent = 'Save Class';
+    }
+
+    function handleTeacherSubmit(e) {
+      e.preventDefault();
+      
+      const isEdit = e.target.dataset.editId;
+      const selectedSubjects = Array.from(
+        document.getElementById('teacher-subjects').selectedOptions
+      ).map(option => parseInt(option.value));
+      
+      const teacherData = {
+        id: isEdit ? parseInt(e.target.dataset.editId) : Date.now(),
+        name: document.getElementById('teacher-name').value,
+        email: document.getElementById('teacher-email').value,
+        phone: document.getElementById('teacher-phone').value,
+        password: document.getElementById('teacher-password').value,
+        subjectIds: selectedSubjects
+      };
+      
+      if (isEdit) {
+        const index = appData.teachers.findIndex(t => t.id === teacherData.id);
+        if (index !== -1) appData.teachers[index] = teacherData;
+      } else {
+        appData.teachers.push(teacherData);
+      }
+      
+      loadManagementLists();
+      loadClassSchedule();
+      closeModal(document.getElementById('teacher-modal'));
+      showToast(`Teacher ${isEdit ? 'updated' : 'added'} successfully`);
+      
+      e.target.reset();
+      delete e.target.dataset.editId;
+      e.target.querySelector('button[type="submit"]').textContent = 'Save Teacher';
+    }
+
+    function handleSubjectSubmit(e) {
+      e.preventDefault();
+      
+      const isEdit = e.target.dataset.editId;
+      const subjectData = {
+        id: isEdit ? parseInt(e.target.dataset.editId) : Date.now(),
+        name: document.getElementById('subject-name').value,
+        level: document.getElementById('subject-level').value,
+        description: document.getElementById('subject-description').value
+      };
+      
+      if (isEdit) {
+        const index = appData.subjects.findIndex(s => s.id === subjectData.id);
+        if (index !== -1) appData.subjects[index] = subjectData;
+      } else {
+        appData.subjects.push(subjectData);
+      }
+      
+      loadManagementLists();
+      loadClassSchedule();
+      closeModal(document.getElementById('subject-modal'));
+      showToast(`Subject ${isEdit ? 'updated' : 'added'} successfully`);
+      
+      e.target.reset();
+      delete e.target.dataset.editId;
+      e.target.querySelector('button[type="submit"]').textContent = 'Save Subject';
+    }
+
+    function handleSessionSubmit(e) {
+      e.preventDefault();
+      
+      const newSession = {
+        id: Date.now(),
+        name: document.getElementById('session-name').value,
+        startDate: document.getElementById('session-start-date').value,
+        endDate: document.getElementById('session-end-date').value
+      };
+      
+      appData.sessions.push(newSession);
+      loadInitialData();
+      closeModal(document.getElementById('session-modal'));
+      showToast('Session added successfully');
+      
+      e.target.reset();
+    }
+
+    // Populate note form selects
+    function populateNoteFormSelects() {
+      if (!currentUser) return;
+      
+      // Get classes this teacher teaches
+      const teacherClasses = appData.classes.filter(cls => 
+        cls.teacherId === currentUser.id || 
+        appData.lessons.some(l => l.teacherId === currentUser.id && l.classId === cls.id)
+      );
+      
+      const classSelect = document.getElementById('note-class');
+      classSelect.innerHTML = teacherClasses.map(cls => 
+        `<option value="${cls.id}">${cls.name}</option>`
+      ).join('');
+      
+      // Get subjects this teacher teaches
+      const teacherSubjects = appData.subjects.filter(sub => 
+        currentUser.subjectIds.includes(sub.id)
+      );
+      
+      const subjectSelect = document.getElementById('note-subject');
+      subjectSelect.innerHTML = teacherSubjects.map(sub => 
+        `<option value="${sub.id}">${sub.name}</option>`
+      ).join('');
+      
+      // Set default date to today
+      document.getElementById('note-date').valueAsDate = new Date();
+    }
+
+    // Handle lesson note submission
+    function handleLessonNoteSubmit(e) {
+      e.preventDefault();
+      
+      if (!currentUser) return;
+      
+      const classId = parseInt(document.getElementById('note-class').value);
+      const subjectId = parseInt(document.getElementById('note-subject').value);
+      const date = document.getElementById('note-date').value;
+      const content = document.getElementById('note-content').value;
+      
+      // Find or create a lesson to attach this note to
+      const sessionId = parseInt(document.getElementById('teacher-session-select').value);
+      const term = parseInt(document.getElementById('teacher-term-select').value);
+      const week = parseInt(document.getElementById('teacher-week-select').value);
+      
+      // Try to find existing lesson
+      let lesson = appData.lessons.find(l => 
+        l.teacherId === currentUser.id &&
+        l.classId === classId &&
+        l.subjectId === subjectId &&
+        l.sessionId === sessionId &&
+        l.term === term &&
+        l.week === week
+      );
+      
+      if (lesson) {
+        // Update existing lesson note
+        lesson.note = content;
+        showToast('Lesson note updated successfully');
+      } else {
+        // Create new lesson with just the note
+        const newLesson = {
+          id: Date.now(),
+          classId,
+          subjectId,
+          teacherId: currentUser.id,
+          sessionId,
+          term,
+          week,
+          day: new Date(date).toLocaleDateString('en-US', { weekday: 'long' }),
+          period: 1, // Default period
+          time: '08:00', // Default time
+          note: content
+        };
+        
+        appData.lessons.push(newLesson);
+        showToast('Lesson note added successfully');
+      }
+      
+      // Refresh the schedule
+      loadTeacherSchedule();
+      
+      // Reset form
+      e.target.reset();
+      populateNoteFormSelects();
+    }
+
+    function loadInitialData() {
+      populateFormSelects();
+      loadClassSchedule();
+      loadTeacherReports();
+      loadManagementLists();
+    }
+
+    function loadClassSchedule() {
+      const sessionId = parseInt(document.getElementById('session-select').value);
+      const term = parseInt(document.getElementById('term-select').value);
+      const week = parseInt(document.getElementById('week-select').value);
+      
+      const container = document.getElementById('class-container');
+      container.innerHTML = '';
+      
+      appData.classes.forEach(cls => {
+        const classLessons = appData.lessons.filter(lesson => 
+          lesson.classId === cls.id && 
+          lesson.sessionId === sessionId && 
+          lesson.term === term && 
+          lesson.week === week
+        );
+        
+        const daysOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+        classLessons.sort((a, b) => {
+          const dayCompare = daysOrder.indexOf(a.day) - daysOrder.indexOf(b.day);
+          if (dayCompare !== 0) return dayCompare;
+          return parseInt(a.period) - parseInt(b.period);
+        });
+        
+        const classCard = document.createElement('div');
+        classCard.className = 'class-card';
+        
+        const classTeacher = appData.teachers.find(t => t.id === cls.teacherId);
+        
+        classCard.innerHTML = `
+          <div class="class-header">
+            ${cls.name}
+            <span>${classTeacher ? classTeacher.name : 'No teacher assigned'}</span>
+          </div>
+          <div class="class-body">
+            <table class="class-schedule">
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Period</th>
+                  <th>Time</th>
+                  <th>Subject</th>
+                  <th>Teacher</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${classLessons.map(lesson => {
+                  const subject = appData.subjects.find(s => s.id === lesson.subjectId);
+                  const teacher = appData.teachers.find(t => t.id === lesson.teacherId);
+                  
+                  return `
+                    <tr>
+                      <td>${lesson.day}</td>
+                      <td>${lesson.period}</td>
+                      <td>${lesson.time}</td>
+                      <td>${subject ? subject.name : 'N/A'}</td>
+                      <td>${teacher ? teacher.name : 'N/A'}</td>
+                      <td>${lesson.note}</td>
+                    </tr>
+                  `;
+                }).join('')}
+                ${classLessons.length === 0 ? `
+                  <tr>
+                    <td colspan="6" style="text-align: center;">No lessons scheduled for this week</td>
+                  </tr>
+                ` : ''}
+              </tbody>
+            </table>
+          </div>
+        `;
+        
+        container.appendChild(classCard);
+      });
+    }
+
+    function loadTeacherReports() {
+      const sessionId = parseInt(document.getElementById('session-select').value);
+      const term = parseInt(document.getElementById('term-select').value);
+      const week = parseInt(document.getElementById('week-select').value);
+      
+      const container = document.getElementById('reports-container');
+      container.innerHTML = '';
+      
+      const filteredReports = appData.reports.filter(report => 
+        report.sessionId === sessionId && 
+        report.term === term && 
+        report.week === week
+      );
+      
+      if (filteredReports.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <i class="fas fa-clipboard-list"></i>
+            <p>No reports available for this week</p>
+          </div>
+        `;
+        return;
+      }
+      
+      filteredReports.forEach(report => {
+        const teacher = appData.teachers.find(t => t.id === report.teacherId);
+        if (!teacher) return;
+        
+        const reportCard = document.createElement('div');
+        reportCard.className = 'report-card';
+        
+        reportCard.innerHTML = `
+          <div class="report-header">
+            <div class="report-teacher">
+              <span class="status-indicator status-${report.status}"></span>
+              ${teacher.name}
+            </div>
+            <div class="report-date">${report.date}</div>
+          </div>
+          <div class="report-content">${report.content}</div>
+          ${report.comment ? `
+            <div class="report-comment">
+              <strong>Director's Comment:</strong> ${report.comment}
+            </div>
+          ` : ''}
+        `;
+        
+        container.appendChild(reportCard);
+      });
+    }
+
+    function loadManagementLists() {
+      // Load classes list
+      const classesList = document.getElementById('classes-list');
+      classesList.innerHTML = appData.classes.map(cls => {
+        const teacher = appData.teachers.find(t => t.id === cls.teacherId);
+        return `
+          <div class="management-item">
+            <div class="item-header">
+              ${cls.name} (${cls.level})
+              <div class="item-actions">
+                <button class="item-btn edit" data-id="${cls.id}"><i class="fas fa-edit"></i></button>
+                <button class="item-btn delete" data-id="${cls.id}"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+            <div class="item-details">
+              <div>Teacher: ${teacher ? teacher.name : 'Not assigned'}</div>
+            </div>
+          </div>
+        `;
+      }).join('') || '<div class="empty-state">No classes added yet</div>';
+
+      // Load teachers list
+      const teachersList = document.getElementById('teachers-list');
+      teachersList.innerHTML = appData.teachers.map(teacher => {
+        const subjects = teacher.subjectIds.map(id => {
+          const subject = appData.subjects.find(s => s.id === id);
+          return subject ? subject.name : '';
+        }).filter(name => name).join(', ');
+        
+        return `
+          <div class="management-item">
+            <div class="item-header">
+              ${teacher.name}
+              <div class="item-actions">
+                <button class="item-btn edit" data-id="${teacher.id}"><i class="fas fa-edit"></i></button>
+                <button class="item-btn delete" data-id="${teacher.id}"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+            <div class="item-details">
+              <div>Email: ${teacher.email}</div>
+              <div>Phone: ${teacher.phone || 'N/A'}</div>
+              <div>Subjects: ${subjects || 'N/A'}</div>
+            </div>
+          </div>
+        `;
+      }).join('') || '<div class="empty-state">No teachers added yet</div>';
+
+      // Load subjects list
+      const subjectsList = document.getElementById('subjects-list');
+      subjectsList.innerHTML = appData.subjects.map(subject => `
+        <div class="management-item">
+          <div class="item-header">
+            ${subject.name} (${subject.level})
+            <div class="item-actions">
+              <button class="item-btn edit" data-id="${subject.id}"><i class="fas fa-edit"></i></button>
+              <button class="item-btn delete" data-id="${subject.id}"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>
+          <div class="item-details">
+            ${subject.description || 'No description'}
+          </div>
+        </div>
+      `).join('') || '<div class="empty-state">No subjects added yet</div>';
+
+      setupEditDeleteListeners();
+    }
+
+    function loadTeacherSchedule() {
+      if (!currentUser) return;
+      
+      const sessionId = parseInt(document.getElementById('teacher-session-select').value);
+      const term = parseInt(document.getElementById('teacher-term-select').value);
+      const week = parseInt(document.getElementById('teacher-week-select').value);
+      
+      const container = document.getElementById('teacher-schedule-container');
+      container.innerHTML = '';
+      
+      // Get all lessons for this teacher in the selected session/term/week
+      const teacherLessons = appData.lessons.filter(lesson => 
+        lesson.teacherId === currentUser.id &&
+        lesson.sessionId === sessionId && 
+        lesson.term === term && 
+        lesson.week === week
+      );
+      
+      // Group lessons by class
+      const lessonsByClass = {};
+      teacherLessons.forEach(lesson => {
+        if (!lessonsByClass[lesson.classId]) {
+          lessonsByClass[lesson.classId] = [];
+        }
+        lessonsByClass[lesson.classId].push(lesson);
+      });
+      
+      // Display schedule
+      for (const classId in lessonsByClass) {
+        const cls = appData.classes.find(c => c.id === parseInt(classId));
+        if (!cls) continue;
+        
+        const classLessons = lessonsByClass[classId];
+        
+        // Sort lessons by day and period
+        const daysOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+        classLessons.sort((a, b) => {
+          const dayCompare = daysOrder.indexOf(a.day) - daysOrder.indexOf(b.day);
+          if (dayCompare !== 0) return dayCompare;
+          return parseInt(a.period) - parseInt(b.period);
+        });
+        
+        const classCard = document.createElement('div');
+        classCard.className = 'class-card';
+        
+        classCard.innerHTML = `
+          <div class="class-header">
+            ${cls.name}
+          </div>
+          <div class="class-body">
+            <table class="class-schedule">
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Period</th>
+                  <th>Time</th>
+                  <th>Subject</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${classLessons.map(lesson => {
+                  const subject = appData.subjects.find(s => s.id === lesson.subjectId);
+                  
+                  return `
+                    <tr>
+                      <td>${lesson.day}</td>
+                      <td>${lesson.period}</td>
+                      <td>${lesson.time}</td>
+                      <td>${subject ? subject.name : 'N/A'}</td>
+                      <td>${lesson.note || 'No note yet'}</td>
+                    </tr>
+                  `;
+                }).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+        
+        container.appendChild(classCard);
+      }
+      
+      if (Object.keys(lessonsByClass).length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <i class="fas fa-calendar-alt"></i>
+            <p>No classes scheduled for this week</p>
+          </div>
+        `;
+      }
+    }
+
+    function handleBackupNow() {
+      const backupName = document.getElementById('backup-name').value || `Backup ${new Date().toLocaleString()}`;
+      const backupDescription = document.getElementById('backup-description').value || '';
+      
+      const backup = {
+        id: Date.now(),
+        name: backupName,
+        description: backupDescription,
+        date: new Date().toISOString(),
+        data: JSON.stringify(appData)
+      };
+      
+      appData.backups.push(backup);
+      closeModal(document.getElementById('backup-modal'));
+      showToast('Backup created successfully');
+      
+      document.getElementById('last-backup-time').textContent = new Date().toLocaleString();
+    }
+
+    function handleRestoreData() {
+      const backupList = document.getElementById('backup-list');
+      backupList.innerHTML = appData.backups.map(backup => `
+        <div class="management-item" data-id="${backup.id}">
+          <div class="item-header">
+            ${backup.name}
+            <div class="item-details">
+              ${new Date(backup.date).toLocaleString()}
+            </div>
+          </div>
+          ${backup.description ? `
+            <div class="item-details">
+              ${backup.description}
+            </div>
+          ` : ''}
+        </div>
+      `).join('') || '<div class="empty-state">No backups available</div>';
+
+      document.querySelectorAll('#backup-list .management-item').forEach(item => {
+        item.addEventListener('click', function() {
+          document.querySelectorAll('#backup-list .management-item').forEach(i => 
+            i.classList.remove('selected')
+          );
+          this.classList.add('selected');
+          document.getElementById('confirm-restore').disabled = false;
+        });
+      });
+
+      document.getElementById('confirm-restore').addEventListener('click', function() {
+        const selected = document.querySelector('#backup-list .management-item.selected');
+        if (!selected) return;
+        
+        const backupId = parseInt(selected.getAttribute('data-id'));
+        const backup = appData.backups.find(b => b.id === backupId);
+        
+        if (backup) {
+          appData = JSON.parse(backup.data);
+          loadInitialData();
+          closeModal(document.getElementById('restore-modal'));
+          showToast('Data restored successfully');
+        }
+      });
+
+      openModal(document.getElementById('restore-modal'));
+    }
+
+    function handleExportData() {
+      const dataStr = JSON.stringify(appData);
+      const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+      
+      const exportFileDefaultName = `school-agenda-export-${new Date().toISOString().slice(0,10)}.json`;
+      
+      const linkElement = document.createElement('a');
+      linkElement.setAttribute('href', dataUri);
+      linkElement.setAttribute('download', exportFileDefaultName);
+      linkElement.click();
+      
+      showToast('Data exported successfully');
+    }
+
+    function handleImportData() {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = '.json';
+      
+      input.onchange = e => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        
+        reader.onload = event => {
+          try {
+            const importedData = JSON.parse(event.target.result);
+            appData = importedData;
+            loadInitialData();
+            showToast('Data imported successfully');
+          } catch (error) {
+            showToast('Error importing data', 'error');
+            console.error(error);
+          }
+        };
+        
+        reader.readAsText(file);
+      };
+      
+      input.click();
+    }
+
+    function handleResetData() {
+      if (confirm('Are you sure you want to reset all data? This cannot be undone.')) {
+        appData = {
+          sessions: [],
+          classes: [],
+          teachers: [],
+          subjects: [],
+          lessons: [],
+          reports: [],
+          backups: [],
+          adminCredentials: {
+            username: "admin",
+            password: "admin123"
+          }
+        };
+        
+        initializeSampleData();
+        loadInitialData();
+        showToast('Data reset successfully');
+      }
+    }
+
+    function handlePrint() {
+      window.print();
+    }
+
+    function handleDownload() {
+      const dataStr = JSON.stringify({
+        session: document.getElementById('session-select').value,
+        term: document.getElementById('term-select').value,
+        week: document.getElementById('week-select').value,
+        classes: appData.classes,
+        lessons: appData.lessons
+      }, null, 2);
+      
+      const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+      
+      const exportFileDefaultName = `school-agenda-${new Date().toISOString().slice(0,10)}.json`;
+      
+      const linkElement = document.createElement('a');
+      linkElement.setAttribute('href', dataUri);
+      linkElement.setAttribute('download', exportFileDefaultName);
+      linkElement.click();
+      
+      showToast('Schedule downloaded successfully');
+    }
+    </script>
+</body>
+</html>
